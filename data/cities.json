@@ -1,0 +1,52 @@
+{
+  "cities": [
+    {
+      "id": "6821",
+      "cityName": "Gaza",
+      "emoji": "🇵🇸",
+      "country": "Palestine, State of",
+      "date": "2025-03-02T04:36:10.808Z",
+      "notes": "Best place on the earth",
+      "position": {
+        "lat": "31.50948351057133",
+        "lng": "34.45999145507813"
+      }
+    },
+    {
+      "id": "ac0c",
+      "cityName": "Cairo",
+      "emoji": "🇪🇬",
+      "country": "Egypt",
+      "date": "2025-03-02T20:38:06.520Z",
+      "notes": "",
+      "position": {
+        "lat": "29.859701442126756",
+        "lng": "31.684570312500004"
+      }
+    },
+    {
+      "id": "6cc8",
+      "cityName": "Hun",
+      "emoji": "🇱🇾",
+      "country": "Libya",
+      "date": "2025-03-02T21:00:49.165Z",
+      "notes": "",
+      "position": {
+        "lat": "26.78484736105119",
+        "lng": "18.259277343750004"
+      }
+    },
+    {
+      "id": "6f34",
+      "cityName": "Siwah",
+      "emoji": "🇪🇬",
+      "country": "Egypt",
+      "date": "2025-03-03T04:10:59.111Z",
+      "notes": "",
+      "position": {
+        "lat": "29.70713934813417",
+        "lng": "25.334472656250004"
+      }
+    }
+  ]
+}
