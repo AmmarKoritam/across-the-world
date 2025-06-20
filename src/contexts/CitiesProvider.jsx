@@ -6,10 +6,11 @@ import {
   useEffect,
   useReducer,
 } from "react";
+import { getCitys, getOneCity, createOneCity, deleteOneCity } from "../apiCity";
 
 const CitiesContext = createContext();
 
-const BASE_URL = "http://localhost:8000";
+// const BASE_URL = "http://localhost:8000";
 
 const initialState = {
   cities: [],
@@ -77,8 +78,7 @@ function CitiesProvider({ children }) {
     async function getData() {
       try {
         dispatch({ type: "loading" });
-        const res = await fetch(`${BASE_URL}/cities`);
-        const data = await res.json();
+        const data = await getCitys();
         dispatch({ type: "cities/loaded", payload: data });
       } catch {
         dispatch({
@@ -96,8 +96,7 @@ function CitiesProvider({ children }) {
       if (Number(id) === currentCity.id) return;
       try {
         dispatch({ type: "loading" });
-        const res = await fetch(`${BASE_URL}/cities/${id}`);
-        const data = await res.json();
+        const data = await getOneCity(id);
         dispatch({ type: "city/loaded", payload: data });
       } catch {
         dispatch({
@@ -113,14 +112,8 @@ function CitiesProvider({ children }) {
   async function createCity(newCity) {
     try {
       dispatch({ type: "loading" });
-      const res = await fetch(`${BASE_URL}/cities`, {
-        method: "POST",
-        body: JSON.stringify(newCity),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-      const data = await res.json();
+
+      const data = await createOneCity(newCity);
       dispatch({
         type: "city/created",
         payload: data,
@@ -137,9 +130,8 @@ function CitiesProvider({ children }) {
   async function deleteCity(id) {
     try {
       dispatch({ type: "loading" });
-      await fetch(`${BASE_URL}/cities/${id}`, {
-        method: "DELETE",
-      });
+
+      await deleteOneCity(id);
 
       dispatch({
         type: "city/deleted",
