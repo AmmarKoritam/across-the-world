@@ -35,14 +35,15 @@ export async function createOneCity(newCity) {
   const { data, error } = await supabase
     .from("city")
     .insert([{ ...newCity }])
-    .select();
+    .select()
+    .single();
 
   if (error) {
     console.error("Error inserting city:", error.message);
     throw new Error(`Failed to create city: ${error.message}`);
   }
 
-  return data.json();
+  return data;
 }
 
 export async function deleteOneCity(id) {
